@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*-encoding=utf8 -*-
 # Author :        Liu Dongqiang
 # Email :         1047400998@@qq.com
@@ -131,7 +132,7 @@ def wipe_basic_root(l, root):
 
 def main(argv):
     if not len(argv) == 3:
-        print 'usage: python difftree.py <dir>1 <dir2>'
+        print 'usage: python difftree.py <dir1> <dir2>'
         exit(1)
 
     def format_dir(d):
