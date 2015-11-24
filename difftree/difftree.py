@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*-encoding=utf8 -*-
 # Author :        Liu Dongqiang
 # Email :         1047400998@@qq.com
@@ -22,12 +21,15 @@ class colors:
     FAIL = '\033[91m'
     ENDC = '\033[0m'
 
+    @classmethod
     def print_green(self, s):
         print (colors.OKGREEN + s + colors.ENDC)
 
+    @classmethod
     def print_red(self, s):
         print (colors.FAIL + s + colors.ENDC)
 
+    @classmethod
     def print_pink(self, s):
         print (colors.HEADER + s + colors.ENDC)
 
@@ -91,12 +93,12 @@ def print_res(list1, list2, indexs1, indexs2):
         # 第一个列表独有的行 视为减行
         for line in subtr_res:
             s = '< %s' % line.rstrip()
-            colors().print_red(s)
+            colors.print_red(s)
 
         # 第二个列表独有的行 视为加行
         for line in plus_res:
             s = '> %s' % line.rstrip()
-            colors().print_green(s)
+            colors.print_green(s)
 
     if not indexs1:
         subtr_res = list1
@@ -156,7 +158,7 @@ def main(argv):
 
     # 输出目录的相同的以及不同的
     info = '    目录结构差异    '
-    colors().print_pink('%s%s%s' % ('='*25, info, '='*25))
+    colors.print_pink('%s%s%s' % ('='*25, info, '='*25))
     indexs1, indexs2 = lcl(list1, list2, len1, len2)
     print_res(list1, list2, indexs1, indexs2)
 
@@ -167,8 +169,8 @@ def main(argv):
         f2 = os.path.join(dir2, rltv_path)
 
         print
-        colors().print_pink('='*50)
-        colors().print_pink('%s    VS    %s' % (f1, f2))
+        colors.print_pink('='*50)
+        colors.print_pink('%s    VS    %s' % (f1, f2))
         print
 
         f1 = open(f1, 'r')
