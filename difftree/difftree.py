@@ -35,6 +35,7 @@ class colors:
 
 # longest common list
 def lcl(list1, list2, len1, len2):
+    # 返回两个列表相同行的行下标
     def sub_list_indexs(b, list1, len1, len2):
         i = len1
         j = len2
@@ -54,6 +55,7 @@ def lcl(list1, list2, len1, len2):
         # list1的下标
         indexs1.reverse()
         indexs2.reverse()
+
         return indexs1, indexs2
 
     rect = [([0] * (len2+1)) for i in range(len1+1)]
@@ -114,14 +116,14 @@ def print_res(list1, list2, indexs1, indexs2):
         pre_index1 = index1 + 1
         pre_index2 = index2 + 1
 
+        myprint(subtr_res, plus_res)
+        print list1[index1].rstrip()
+
         # 最后一个index匹配完后 输出list1, list2剩余的行
         if index1 == indexs1[-1]:
-            subtr_res.extend(list1[pre_index1:])
-            plus_res.extend(list2[pre_index2:])
+            subtr_res = list1[pre_index1:]
+            plus_res = list2[pre_index2:]
             myprint(subtr_res, plus_res)
-        else:
-            myprint(subtr_res, plus_res)
-            print list1[index1].rstrip()
 
 # 将路径始目录（不同）部分去除
 def wipe_basic_root(l, root):
